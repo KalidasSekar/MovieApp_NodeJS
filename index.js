@@ -6,7 +6,7 @@ import { moviesRouter } from "./routes/movies.js";
 
 dotenv.config();
 const app = express();
-const PORT = 9000;
+const PORT = process.env.PORT || 9000;
 app.use(express.json());
 
 // const MONGO_URL = 'mongodb+srv://kalidas_2021:12345@cluster0.8as6j.mongodb.net'; //Before
