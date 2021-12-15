@@ -2,20 +2,15 @@
 import express from "express";
 import { MongoClient } from "mongodb";
 import dotenv from "dotenv";
-import { getAllMovies, getMoviesById, createMovies, deleteMoviesById, editMoviesById } from "./helper.js";
+import { moviesRouter } from "./routes/movies.js";
 
 dotenv.config();
-
 const app = express();
-
 const PORT = 9000;
-
 app.use(express.json());
 
 // const MONGO_URL = 'mongodb+srv://kalidas_2021:12345@cluster0.8as6j.mongodb.net'; //Before
 const MONGO_URL = process.env.MONGO_URL; //After
-
-
 
 async function createConnection() {
     const client = new MongoClient(MONGO_URL);
@@ -23,7 +18,6 @@ async function createConnection() {
     console.log("MongoDB Connected");
     return client;
 }
-
 
 export const client = await createConnection();
 
